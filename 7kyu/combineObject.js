@@ -10,22 +10,35 @@ const objB = {
     d: 3
 };
 
+// with reduce method
 const combine = (...args) => {
-    let result = {};
-
-    for (let i = 0; i < args.length; i++) {
-        for (let key in args[i]) {
-            if (!result[key]) {
-                result[key] = args[i][key]
+    return args.reduce((acc, curr) => {
+        for (let key in curr) {
+            if (acc[key]) {
+                acc[key] += curr[key];
             } else {
-                result[key] += args[i][key]
+                acc[key] = curr[key];
+            }
+        }
+        return acc;
+    }, {})
+};
+
+// with for loop
+
+const combine = (...args) => {
+    let newObj = {};
+    for (let obj of args) {
+        for (let key in obj) {
+            if (newObj[key]) {
+                newObj[key] += obj[key];
+            } else {
+                newObj[key] = obj[key];
             }
         }
     }
-
-    return result
-};
-
+    return newObj;
+}
 
 
-combine(objA, objB); // { a: 13, b: 20, c: 36, d: 3 }
+(combine(objA, objB)); // { a: 13, b: 20, c: 36, d: 3 }
