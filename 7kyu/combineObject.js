@@ -28,5 +28,4 @@ const combine = (...args) => {
 
 
 
-console.log(combine(objA, objB))
-
+combine(objA, objB); // { a: 13, b: 20, c: 36, d: 3 }
