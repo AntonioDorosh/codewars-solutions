@@ -1,12 +1,28 @@
-const findVowels = (str) => {
-    let count = 0;
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
+// const findVowels = (str) => {
+//     let count = 0;
+//     const vowels = ['a', 'e', 'i', 'o', 'u'];
+//
+//     for (const char of str.toLowerCase()) {
+//         if (vowels.includes(char)) {
+//             count++
+//         }
+//     }
+//     return count;
+// };
 
-    for (const char of str.toLowerCase()) {
-        if (vowels.includes(char)) {
-            count++
+
+const findVowels = (str) => {
+    const vowels = 'aeiouAEIOU';
+    let count = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        const element = str[i];
+
+        if (vowels.includes(element)) {
+            count++;
         }
     }
+
     return count;
 };
 
