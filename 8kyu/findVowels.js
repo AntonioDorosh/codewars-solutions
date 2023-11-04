@@ -26,4 +26,4 @@ const findVowels = (str) => {
     return count;
 };
 
-console.log(findVowels('Hello, man'))
+console.log(findVowels('Hello, man')) // 3 vowels was found
