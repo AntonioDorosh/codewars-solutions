@@ -1,12 +1,16 @@
-const reverseKeys = obj => obj.split('').reverse().join('')
+const reverseKeys = (obj) => obj.split('').reverse().join('');
 
 const mirrorObj = (obj) => {
-    return Object.keys(obj).reduce((obj, key) => {
-        obj[key] = reverseKeys(key)
+    const keys = Object.keys(obj);
 
-        return obj
+    return keys.reduce((acc, key) => {
+        return {
+            ...acc,
+            [key]: reverseKeys(key)
+        }
     }, {})
 };
+
 
 // const mirrorObj = (obj) => {
 //     let newObj = {};
