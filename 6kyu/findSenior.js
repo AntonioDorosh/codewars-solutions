@@ -1,4 +1,4 @@
-const developerList= [
+const developerList = [
     {
         firstName: 'Gabriel',
         lastName: 'X.',
@@ -33,10 +33,14 @@ const developerList= [
     },
 ];
 
-const findSenior = (arr) => {
-  const oldestPerson = Math.max(...arr.map((dev) => dev.age));
+const findOldest = (arr) => {
+    return Math.max(...arr.map(({age}) => age))
+};
 
-  return arr.filter((dev) => dev.age === oldestPerson)
+const findSenior = (arr) => {
+    const oldest = findOldest(arr);
+
+    return arr.filter(({age}) => age === oldest)
 };
 
 
