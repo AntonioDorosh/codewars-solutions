@@ -37,9 +37,9 @@ const personList = [
     }
 ];
 
-const findAdmin = (arr, lang) => arr.filter(({githubAdmin, language}) => githubAdmin === 'yes' && language === lang)
+const findAdmin = (arr, correct , lang) => arr.filter(({githubAdmin, language}) => githubAdmin === correct && language === lang)
 
-findAdmin(personList, 'JavaScript')
+findAdmin(personList, 'yes', 'JavaScript')
 
 
 // [
