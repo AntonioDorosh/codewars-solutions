@@ -36,16 +36,24 @@ const list2 = [
     },
 ];
 
+// const findAvgAge = (arr) => {
+//     let result = 0;
+//
+//     for (let i = 0; i < arr.length; i++) {
+//         result += arr[i].age
+//     }
+//
+//     return Math.round(result / arr.length)
+// };
+
+const sumTotal = (arr) => arr.reduce((acc, person) => acc + person.age, 0) / arr.length;
+
 const findAvgAge = (arr) => {
-    let result = 0;
+    const sum = sumTotal(arr);
 
-    for (let i = 0; i < arr.length; i++) {
-        result += arr[i].age
-    }
-
-    return Math.round(result / arr.length)
+    return Math.round(sum)
 };
 
-findAvgAge(list1) // 50
+findAvgAge(list1); // 50
 findAvgAge(list2) // 21
 
