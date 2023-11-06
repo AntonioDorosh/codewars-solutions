@@ -1,4 +1,14 @@
-const arrList = [
+type Developer = {
+    firstName: string;
+    lastName: string;
+    country: string;
+    continent: string;
+    age: number;
+    language: string;
+    greeting?: string;
+}
+
+const arrList: Developer[] = [
     {
         firstName: 'Sofia',
         lastName: 'I.',
@@ -25,9 +35,9 @@ const arrList = [
     }
 ];
 
-const greetHandler = (name, lang) => `Hi ${name}, what do you like the most about ${lang}?`;
+const greetHandler = (name: string, lang: string) => `Hi ${name}, what do you like the most about ${lang}?`;
 
-const greetDevelopers = (list) => {
+const greetDevelopers = (list: Developer[]) => {
     return list.map((dev) => ({
         ...dev,
         greeting: greetHandler(dev.firstName, dev.language)
