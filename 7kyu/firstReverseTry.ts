@@ -1,4 +1,4 @@
-// const firstReverseTry = (arr) => {
+// const firstReverseTry = (arr: number[]) => {
 //     const firstEl = arr[0];
 //     const lastEl = arr[arr.length - 1];
 //
@@ -11,7 +11,7 @@
 //     return arr;
 // };
 
-const firstReverseTry = (arr) => {
+const firstReverseTry = (arr: number[]) => {
     return arr.length > 1 ? arr.slice(-1).concat(arr.slice(1, -1)).concat(arr.slice(0, 1)) : arr;
 };
 

@@ -1,4 +1,14 @@
-const personList = [
+type TPerson = {
+    firstName: string;
+    lastName: string;
+    country: string;
+    age: number;
+    continent: string;
+    language: string;
+    githubAdmin: string;
+}
+
+const personList: TPerson[] = [
     {
         firstName: 'Harry',
         lastName: 'K.',
@@ -37,7 +47,7 @@ const personList = [
     }
 ];
 
-const findAdmin = (arr, correct , lang) => arr.filter(({githubAdmin, language}) => githubAdmin === correct && language === lang)
+const findAdmin = (arr: TPerson[], correct: string , lang: string) => arr.filter(({githubAdmin, language}) => githubAdmin === correct && language === lang)
 
 findAdmin(personList, 'yes', 'JavaScript')
 
