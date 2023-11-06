@@ -1,4 +1,13 @@
-const list1 = [
+type TInfo = {
+    firstName: string;
+    lastName: string;
+    country?: string;
+    continent?: string;
+    age?: number;
+    language?: string;
+}
+
+const list1: TInfo[] = [
     {
         firstName: 'Emily',
         lastName: 'N.',
@@ -17,14 +26,14 @@ const list1 = [
     }
 ];
 
-const makeLogin = ({firstName, lastName, age}) => {
+const makeLogin = ({firstName, lastName, age}: TInfo): string => {
     const getYear = new Date().getFullYear();
     const birthYear = getYear - age;
 
     return `${firstName}${lastName}${birthYear}`.replace('.', '').toLowerCase();
 };
 
-const addUserName = (arr) => {
+const addUserName = (arr: TInfo[]) => {
     return arr.map((person) => {
         const {firstName, lastName, age} = person;
 
