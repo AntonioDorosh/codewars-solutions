@@ -1,14 +1,4 @@
-type TArray = {
-    firstName: string | null;
-    lastName: string;
-    country: string;
-    continent: string;
-    age: number;
-    language?: string | null;
-    question?: string
-}
-
-const list1: TArray[] = [
+const list1 = [
     {
         firstName: null,
         lastName: 'I.',
@@ -35,16 +25,21 @@ const list1: TArray[] = [
     }
 ];
 
-const askForMissingDetails = (arr: TArray[]) => {
-    return arr.filter((obj) => {
-        const [missingProperty] = Object.keys(obj).filter((prop) => obj[prop] === null);
+const askForMissingDetails = (arr) => {
+    return arr.reduce((acc, obj) => {
+        const missingProperty = Object.entries(obj).find(([_, value]) => value === null);
 
         if (missingProperty) {
-            obj.question = `Hi, could you please provide your ${missingProperty}`
-
-            return obj
+            return [
+                ...acc,
+                {
+                    ...obj,
+                    question: `Hi, could you please provide your ${missingProperty[0]}.`
+                }
+            ]
         }
-    })
+        return acc
+    }, [])
 };
 
 console.log(askForMissingDetails(list1));
