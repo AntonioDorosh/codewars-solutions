@@ -8,7 +8,7 @@ type TArray = {
     question?: string
 }
 
-const list1 = [
+const list1: TArray[] = [
     {
         firstName: null,
         lastName: 'I.',
