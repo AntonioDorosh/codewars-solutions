@@ -1,4 +1,14 @@
-const list1 = [
+type TArray = {
+    firstName: string | null;
+    lastName: string;
+    country: string;
+    continent: string;
+    age: number;
+    language: string | null;
+    question?: string;
+}
+
+const list1: TArray[] = [
     {
         firstName: null,
         lastName: 'I.',
@@ -25,8 +35,8 @@ const list1 = [
     }
 ];
 
-const askForMissingDetails = (arr) => {
-    return arr.reduce((acc, obj) => {
+const askForMissingDetails = (arr: TArray[]) => {
+    return arr.reduce((acc: TArray[], obj: TArray) => {
         const missingProperty = Object.entries(obj).find(([_, value]) => value === null);
 
         if (missingProperty) {
