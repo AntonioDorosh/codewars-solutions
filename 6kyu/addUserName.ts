@@ -3,7 +3,7 @@ type TInfo = {
     lastName: string;
     country?: string;
     continent?: string;
-    age?: number;
+    age?: number | undefined;
     language?: string;
 }
 
@@ -26,9 +26,10 @@ const list1: TInfo[] = [
     }
 ];
 
-const makeLogin = ({firstName, lastName, age}: TInfo): string => {
+const makeLogin = (props: TInfo): string => {
+    const {firstName, lastName, age} = props;
     const getYear = new Date().getFullYear();
-    const birthYear = getYear - age;
+    const birthYear = getYear - (age ?? 0);
 
     return `${firstName}${lastName}${birthYear}`.replace('.', '').toLowerCase();
 };
