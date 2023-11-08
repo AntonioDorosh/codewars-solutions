@@ -7,4 +7,4 @@ const twoHighest = (arr) => {
     return sortedArr.slice(0 ,2)
 };
 
-console.log(twoHighest([15]))
+console.log(twoHighest([15,15, 20, 17])) // 20, 17 output
