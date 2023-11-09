@@ -47,13 +47,13 @@ const list1 = [
 // };
 
 const countLanguages = (list) => {
-    return list.reduce((acc, obj) => {
-        if (acc[obj.language] === undefined) {
-            acc[obj.language] = 1;
+    return list.reduce((obj, {language}) => {
+        if (obj[language] === undefined) {
+            obj[language] = 1;
         } else {
-            acc[obj.language]++;
+            obj[language]++;
         }
-        return acc;
+        return obj;
     }, {})
 };
 
