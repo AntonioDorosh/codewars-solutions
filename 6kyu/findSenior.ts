@@ -1,4 +1,13 @@
-const developerList = [
+type TDeveloper = {
+    firstName: string;
+    lastName: string;
+    country: string;
+    continent: string;
+    age: number;
+    language: string;
+}
+
+const developerList: TDeveloper[] = [
     {
         firstName: 'Gabriel',
         lastName: 'X.',
@@ -33,11 +42,11 @@ const developerList = [
     },
 ];
 
-const findOldest = (arr) => {
+const findOldest = (arr: TDeveloper[]) => {
     return Math.max(...arr.map(({age}) => age))
 };
 
-const findSenior = (arr) => {
+const findSenior = (arr: TDeveloper[]) => {
     const oldest = findOldest(arr);
 
     return arr.filter(({age}) => age === oldest)
