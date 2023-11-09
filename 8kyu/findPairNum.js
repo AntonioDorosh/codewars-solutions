@@ -2,7 +2,7 @@ const numbers = [2, 5, 9, 11, 10];
 
 const findPairNum = (arr, target) => {
     let left = 0;
-    let right = arr[arr.length - 1];
+    let right = arr.at(-1);
 
     while (left < right) {
         const currentNum = arr[left] + arr[right];
