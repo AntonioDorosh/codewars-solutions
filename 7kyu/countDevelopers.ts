@@ -42,8 +42,19 @@ const list1: TDev[] = [
     }
 ];
 
-const countDevelopers = (arr: TDev[]) => {
-    return arr.filter((dev) => dev.continent === 'Europe' && dev.language === 'JavaScript').length
-};
+// // solution with filter method
+// const countDevelopers = (arr: TDev[]) => {
+//     return arr.filter(({language, continent}) => continent === 'Europe' && language === 'JavaScript').length
+// };
 
+
+// with reduce method solution
+const countDevelopers = (arr: TDev[]) => {
+    return arr.reduce((acc: number, {language, continent}) => {
+        if (continent === 'Europe' && language === 'JavaScript') {
+            return acc + 1
+        }
+        return acc
+    }, 0)
+};
 console.log(countDevelopers(list1)) // return 1
