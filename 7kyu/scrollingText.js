@@ -13,7 +13,7 @@
 // map solution
 
 const scrollingText = (text) => {
-    return text.split('').map((char, index) => {
+    return text.split('').map((_, index) => {
         return text.slice(index).toUpperCase() + text.slice(0, index).toUpperCase()
     })
 };
