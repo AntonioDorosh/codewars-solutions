@@ -13,9 +13,9 @@
 // map solution
 
 const scrollingText = (text) => {
-    return text.split('').map((_, index) => {
-        return text.slice(index).toUpperCase() + text.slice(0, index).toUpperCase()
-    })
+    text = text.toUpperCase();
+
+    return [...text].map((_, index) => text.slice(index) + text.slice(0, index))
 };
 
 console.log(scrollingText('abc'))
