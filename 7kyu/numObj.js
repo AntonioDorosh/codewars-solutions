@@ -1,13 +1,21 @@
-const numObj = (char) => {
-    const result = [];
+// const numObj = (char) => {
+//     const result = [];
+//
+//     char.forEach((item) => {
+//         let obj = {};
+//         obj[item] = String.fromCharCode(item);
+//         result.push(obj)
+//     })
+//
+//     return result
+// };
 
-    char.forEach((item) => {
-        let obj = {};
-        obj[item] = String.fromCharCode(item);
-        result.push(obj)
+const numObj = (arr) => {
+    return arr.map((item) => {
+        return {
+        [item]: String.fromCharCode(item)
+        }
     })
-
-    return result
 };
 
 
