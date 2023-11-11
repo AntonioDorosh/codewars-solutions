@@ -4,7 +4,7 @@ const HQ9 = (code) => {
     if (code.includes('H')) {
         return `Hello World!`
     } else if (code.includes('Q')) {
-        return `Q`
+        return code
     } else if (code.includes('9')) {
         return `${lirycs}`
     } else {
@@ -14,3 +14,4 @@ const HQ9 = (code) => {
 
 console.log(HQ9('H'))
 console.log(HQ9('9'))
+console.log(HQ9('Q'))
