@@ -25,5 +25,5 @@ const absentVowel = (str) => {
     return vowels.findIndex((char) => !str.toLowerCase().includes(char))
 };
 
-absentVowel("John Doe hs seven red pples under his bsket").log // 0 --> missing: 'a'
+absentVowel("John Doe hs seven red pples under his bsket")// 0 --> missing: 'a'
 absentVowel('Bb Smith sent us six neatly arranged range bicycles') // 3 --> missing: 'o'
