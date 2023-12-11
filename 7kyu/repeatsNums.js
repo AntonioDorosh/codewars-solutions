@@ -1,6 +1,6 @@
-const repeatsNums = (arr) => {
-    return arr.filter((el, _, array) => array.indexOf(el) === array.lastIndexOf(el)).reduce((acc, currentValue) => acc + currentValue, 0)
-};
+// const repeatsNums = (arr) => {
+//     return arr.filter((el, _, array) => array.indexOf(el) === array.lastIndexOf(el)).reduce((acc, currentValue) => acc + currentValue, 0)
+// };
 
 // second solution
 
@@ -17,6 +17,22 @@ const repeatsNums = (arr) => {
 //     })
 //     return uniqueElArr.reduce((acc, currentValue) => acc + currentValue, 0)
 // };
+
+const repeatsNums = (arr) => {
+    const uniqueArr = new Set();
+    let sum = 0;
+
+    for (let nums of arr) {
+        if (!uniqueArr.has(nums)) {
+            uniqueArr.add(nums)
+            sum += nums
+        } else {
+            sum -= nums
+        }
+    }
+
+    return sum
+};
 
 repeatsNums([4, 5, 7, 5, 4, 8], 15);
 
