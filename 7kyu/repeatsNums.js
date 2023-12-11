@@ -1,10 +1,26 @@
-const repeatsNums = (arr) => {
-    const findUnique = arr.filter((item, index, array) => array.indexOf(item) === array.lastIndexOf(item));
+// const repeatsNums = (arr) => {
+//     const findUnique = arr.filter((item, index, array) => array.indexOf(item) === array.lastIndexOf(item));
+//
+//     return findUnique.reduce((acc, current) => acc + current, 0)
+// };
 
-    return findUnique.reduce((acc, current) => acc + current, 0)
+// second solution
+
+const repeatsNums = (arr) => {
+    const uniqueElArr = [];
+
+    arr.forEach((nums) => {
+        if (uniqueElArr.includes(nums)) {
+            const index = uniqueElArr.indexOf(nums);
+            uniqueElArr.splice(index, 1)
+        } else {
+            uniqueElArr.push(nums)
+        }
+    })
+    return uniqueElArr.reduce((acc, currentValue) => acc + currentValue, 0)
 };
 
-repeatsNums([4,5,7,5,4,8], 15)
+repeatsNums([4, 5, 7, 5, 4, 8], 15)
 
 // describe("Basic tests", function(){
 //     Test.assertEquals(repeats([4,5,7,5,4,8]),15);
