@@ -1,5 +1,15 @@
+// const remove = (str) => {
+//     return str.replace(/!+$/, '')
+// };
+
 const remove = (str) => {
-    return str.replace(/!+$/, '')
+    const strArr = str.split('');
+
+    while(strArr[strArr.length - 1] === '!') {
+        strArr.pop()
+    }
+
+    return strArr.join('')
 };
 
 console.log(remove("Hi!", "Hi"));
