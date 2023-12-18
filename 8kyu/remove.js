@@ -10,9 +10,7 @@
 
 // reduce method
 
-const remove = (str, num) => {
-    const mark = '!';
-
+const remove = (str, num, mark = '!') => {
     return [...str].reduce((acc, currentValue) => {
         if (num > 0 && currentValue === mark) {
             num--;
@@ -22,4 +20,4 @@ const remove = (str, num) => {
     }, '')
 }
 
-console.log(remove('Hi!', 1), 'Hi')
+console.log(remove('Hi!!!', 2), 'Hi')
