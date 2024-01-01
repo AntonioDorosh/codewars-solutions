@@ -5,12 +5,30 @@ const customers = {
     'Jane Doe': [5, 17, 30, 33, 40, 22, 26, 10, 11, 45] // Has six orders above 20$, which means FREE PIZZA!
 };
 
-const freePizza = (customers, minPrice, minOrders) => {
-    const keys = Object.keys(customers);
-    const filteredPerson = person => customers[person].filter((item) => item >= minPrice).length >= minOrders;
-    
-    return keys.filter(filteredPerson)
+// const freePizza = (customers, minPrice, minOrders) => {
+//     const keys = Object.keys(customers);
+//     return keys.filter((person) => {
+//         const orders = customers[person];
+//         const numOrdersAbovePrice = orders.filter((order) => order >= minPrice).length;
+//
+//         return numOrdersAbovePrice >= minOrders
+//     })
+// };
 
+// reduce sol
+
+const getFreePizza = (obj, price, orders) => {
+    const customersArr = Object.keys(obj);
+    
+    return customersArr.reduce((acc, currentValue) => {
+        const filteredPerson = obj[currentValue].filter((order) => order >= price).length >= orders;
+
+        if (filteredPerson) {
+            acc.push(currentValue)
+        }
+
+        return acc
+    }, [])
 };
 
-console.log(freePizza(customers, minPrice, minOrders))
+console.log(getFreePizza(customers, minPrice, minOrders))
