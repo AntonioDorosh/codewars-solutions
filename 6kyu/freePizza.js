@@ -6,9 +6,11 @@ const customers = {
 };
 
 const freePizza = (customers, minPrice, minOrders) => {
-    const filteredPerson = person => customers[person].filter((o) => o >= minPrice).length >= minOrders;
+    const keys = Object.keys(customers);
+    const filteredPerson = person => customers[person].filter((item) => item >= minPrice).length >= minOrders;
+    
+    return keys.filter(filteredPerson)
 
-    return Object.keys(customers).filter(filteredPerson)
 };
 
 console.log(freePizza(customers, minPrice, minOrders))
