@@ -1,9 +1,26 @@
+// const elimination = (arr) => {
+//     const duplicate = arr.filter((item, index, array) => array.indexOf(item) !== index);
+//
+//     if (duplicate.length === 0) return null;
+//
+//     return parseInt(duplicate.join(''));
+// };
+
+// sol with new Set
+
 const elimination = (arr) => {
-    const duplicate = arr.filter((item, index, array) => array.indexOf(item) !== index);
+    const unique = new Set(arr);
+    const twins = arr.filter((currentValue) => {
+        if (unique.has(currentValue)) {
+            unique.delete(currentValue)
+        } else {
+            return currentValue
+        }
+    });
 
-    if (duplicate.length === 0) return null;
+    if (twins.length === 0) return null;
 
-    return parseInt(duplicate.join(''));
+    return parseInt(twins.join(''))
 };
 
 console.log(elimination([2,5,34,1,22,1]), 1, 'twins are 1s')
