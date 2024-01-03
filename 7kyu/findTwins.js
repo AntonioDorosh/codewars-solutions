@@ -18,10 +18,8 @@ const elimination = (arr) => {
         }
     });
 
-    if (twins.length === 0) return null;
-
-    return parseInt(twins.join(''))
+    return parseInt(twins.join('')) || null
 };
 
-console.log(elimination([2,5,34,1,22,1]), 1, 'twins are 1s')
-console.log(elimination([2,5,34,1,22]), null, "There are no twins in the city")
+console.log(elimination([2, 5, 34, 1, 22, 1]), 1, 'twins are 1s')
+console.log(elimination([2, 5, 34, 1, 22]), null, "There are no twins in the city")
