@@ -21,13 +21,19 @@ const winnerList = [
     }
 ];
 
-const countWins = (arr, country) => {
-    return arr.reduce((acc, obj) => {
-        if (obj.country === country) {
-            acc++
-        }
-        return acc
-    }, 0)
-};
+
+// reduce sol
+// const countWins = (arr, country) => {
+//     return arr.reduce((acc, obj) => {
+//         if (obj.country === country) {
+//             acc++
+//         }
+//         return acc
+//     }, 0)
+// };
+
+
+//filter sol
+const countWins = (arr, country) => arr.filter((obj) => obj.country === country).length;
 
 console.log(countWins(winnerList, 'Spain'))
