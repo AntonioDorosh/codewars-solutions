@@ -6,17 +6,30 @@
 
 
 //forEach solution
+// const onlyDuplicates = (str) => {
+//     const result = [];
+//     const strArr = str.split('');
+//
+//     strArr.forEach((item, _, arr) => {
+//         if (arr.indexOf(item) !== arr.lastIndexOf(item)) {
+//             result.push(item)
+//         }
+//     })
+//
+//     return result
+// };
+
+// reduce sol
+
 const onlyDuplicates = (str) => {
-    const result = [];
-    const strArr = str.split('');
-
-    strArr.forEach((item, _, arr) => {
-        if (arr.indexOf(item) !== arr.lastIndexOf(item)) {
-            result.push(item)
+    return str.split('').reduce((acc, currentValue, _, arr) => {
+        if (arr.indexOf(currentValue) !== arr.lastIndexOf(currentValue)) {
+            acc += currentValue
         }
-    })
 
-    return result
+        return acc
+    }, '')
 };
+
 
 console.log((onlyDuplicates('abccdefee'), 'cceee'));
