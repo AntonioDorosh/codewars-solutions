@@ -31,6 +31,18 @@
 
 // using replace by one-line
 
-const removeVowels = (str) => str.replace(/[aeiou]/gi, '');
+// const removeVowels = (str) => str.replace(/[aeiou]/gi, '');
+
+// using reduce
+const removeVowels = (str) => {
+    const vowels = 'aeiou';
+
+    return [...str].reduce((acc, currentValue) => {
+        if (!vowels.includes(currentValue.toLowerCase())) {
+            acc += currentValue
+        }
+        return acc
+    }, '')
+};
 
 console.log(removeVowels('What are you, a communist?'), 'Wht r y, cmnst?')
