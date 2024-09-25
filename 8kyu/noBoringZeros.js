@@ -1,11 +1,11 @@
 const noBoringZeroes = (num) => {
-    const numArr = String(num).split('');
+	const numArr = String(num).split('');
 
-    while (numArr.at(-1) === '0') {
-        numArr.pop()
-    }
+	while (numArr.at(-1) === '0') {
+		numArr.pop()
+	}
 
-    return +numArr.join('')
+	return +numArr.join('')
 };
 
 console.log(noBoringZeroes(1450), 145)
