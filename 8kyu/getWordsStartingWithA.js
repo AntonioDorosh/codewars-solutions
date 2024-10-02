@@ -6,4 +6,4 @@ const getWordsStartingWithA = (str, target) => {
 
 const result = getWordsStartingWithA(text, 'a');
 
-console.log(result)
+console.log(result) // [ 'apple', 'apricot', 'avocado' ]
