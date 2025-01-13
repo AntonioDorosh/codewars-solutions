@@ -13,7 +13,7 @@ function getPassword(grid, directions) {
     let currentPosition = gridString.indexOf('x');
 
     directions.map(dir => {
-        const lastChar = dir.substr(-1);
+        const lastChar = dir.substring(-1);
         if(dir.includes('right')) {
             currentPosition += 1;
         } else if(dir.includes('left')) {
