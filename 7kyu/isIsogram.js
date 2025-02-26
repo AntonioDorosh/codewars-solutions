@@ -1,17 +1,34 @@
-const isIsogram = (str) => {
-    let result = str.toLowerCase();
+// const isIsograms = (str) => {
+//     let result = str.toLowerCase();
+//
+//     for (let i = 0; i < str.length; i++) {
+//         const el = str[i];
+//
+//         if (result.slice(i + 1).includes(el)) {
+//             return false
+//         }
+//     }
+//
+//     return true;
+// };
 
-    for (let i = 0; i < str.length; i++) {
-        const el = str[i];
+const isIsograms = (str) => {
+    const set = new Set();
 
-        if (result.slice(i + 1).includes(el)) {
-            return false
+    for (const strElement of str) {
+        const toLowerChars = strElement.toLowerCase();
+
+        if (set.has(toLowerChars)) {
+            return false;
         }
+
+        set.add(toLowerChars)
+
+        console.log(set)
     }
 
     return true;
 };
 
-
-console.log(isIsogram("Dermatoglyphics"), true)
-console.log(isIsogram('aba'), false)
+console.log(isIsograms("Dermatoglyphics"), true)
+console.log(isIsograms('aba'), false)
