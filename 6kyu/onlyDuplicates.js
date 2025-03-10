@@ -22,9 +22,9 @@
 // reduce sol
 
 const onlyDuplicates = (str) => {
-    return str.split('').reduce((acc, currentValue, _, arr) => {
-        if (arr.indexOf(currentValue) !== arr.lastIndexOf(currentValue)) {
-            acc += currentValue
+    return str.split('').reduce((acc, char, _, arr) => {
+        if (arr.indexOf(char) !== arr.lastIndexOf(char)) {
+            acc += char
         }
 
         return acc

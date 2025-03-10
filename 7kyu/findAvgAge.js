@@ -46,7 +46,7 @@ const list2 = [
 //     return Math.round(result / arr.length)
 // };
 
-const sumTotal = (arr) => arr.reduce((acc, person) => acc + person.age, 0) / arr.length;
+const sumTotal = (arr) => arr.reduce((acc, {age}) => acc + age, 0) / arr.length;
 
 const findAvgAge = (arr) => {
     const sum = sumTotal(arr);
@@ -55,5 +55,5 @@ const findAvgAge = (arr) => {
 };
 
 findAvgAge(list1); // 50
-findAvgAge(list2) // 21
+findAvgAge(list2); // 21
 
