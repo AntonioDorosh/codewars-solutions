@@ -21,4 +21,4 @@ const maxMinArray = (arr) => {
     return result
 };
 
-maxMinArray([15, 11, 10, 7, 12])) // 15,7, 12,10, 11
+maxMinArray([15, 11, 10, 7, 12]) // 15,7, 12,10, 11

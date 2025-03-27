@@ -1,5 +1,5 @@
 const arrCheck = (value) => {
-    return value.every(Array.isArray)
+	return value.every(Array.isArray)
 };
 
 console.log(arrCheck([]), true)

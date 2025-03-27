@@ -51,7 +51,7 @@ const countLanguages = (list) => {
         if (obj[language] === undefined) {
             obj[language] = 1;
         } else {
-            obj[language]++;
+            obj[language] += 1;
         }
         return obj;
     }, {})

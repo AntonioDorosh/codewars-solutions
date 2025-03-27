@@ -45,9 +45,10 @@ const getDiscount = (arr, n) => {
     let result = [];
 
     arr.forEach((item) => {
-        result.push({
+        const discountPrice = item.price - (item.price * (n / 100))
+          result.push({
             name: item.name,
-            price: item.price - (item.price * (n / 100))
+            price: discountPrice
         })
     })
 

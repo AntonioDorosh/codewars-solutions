@@ -1,8 +1,8 @@
 const convertText = (text) => {
-    const convert = text.split('').reverse().join('');
-    const firstChar = text.charAt(0);
+	const convert = text.split('').reverse().join('');
+	const firstChar = text.charAt(0);
 
-    return firstChar !== firstChar.toUpperCase() ? convert : text
+	return firstChar !== firstChar.toUpperCase() ? convert : text
 };
 
 
