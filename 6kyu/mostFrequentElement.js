@@ -12,10 +12,10 @@ const mostFrequentElement = () => {
 	const freqMap = frequencyMap(arr);
 	const entries = Object.entries(freqMap);
 
-	return entries.reduce((acc, [element, count]) => (count > acc.count ? {element, count} : acc), {
-		element: '',
+	return entries.reduce((acc, [fruit, count]) => (count > acc.count ? {fruit, count} : acc), {
+		fruit: '',
 		count: 0
-	}).element
+	}).fruit
 };
 
 console.log(mostFrequentElement());
