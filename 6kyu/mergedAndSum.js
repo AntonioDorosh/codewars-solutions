@@ -1,6 +1,5 @@
-const obj1 = { apples: 3, bananas: 2 };
-const obj2 = { apples: 5, oranges: 4 };
-
+const obj1 = {apples: 3, bananas: 2};
+const obj2 = {apples: 5, oranges: 4};
 
 const mergedAndSum = (obj1, obj2) => {
 	return [obj1, obj2].reduce((acc, obj) => {

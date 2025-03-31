@@ -1,18 +1,7 @@
 const obj = {};
 
 const setDeepValue = (obj, path, value) => {
-	const keys = path.split('.');
-	const lastKey = keys.pop();
-
-	keys.reduce((acc, key) => {
-		if (!acc[key]) {
-			acc[key] = {};
-		}
-
-		return acc[key]
-	}, obj)[lastKey] = value
-
-	return obj
+	return path.split('.').reduceRight((acc, key) => ({[key]: acc}), value)
 };
 
 const result = setDeepValue(obj, 'a.b.c', 42);
