@@ -24,17 +24,17 @@ const groupEmployeesByDepartment = (employees) => {
 	}, {})
 };
 
-const getDepartmentsWithHighAverageSalary = (employees, threshold = 65000) => {
+const getDepartmentsWithHighAverageSalary = (employees, threshold = 50000) => {
 	const grouped = groupEmployeesByDepartment(employees);
 
-	const averages = Object.entries(grouped).map(([department, employees]) => {
-		const totalSalary = employees.reduce((acc, emp) => typeof emp.salary === 'number' ? acc + emp.salary : acc, 0);
+	const averages = Object.entries(grouped).map(([department, employee]) => {
+		const totalSalary = employee.reduce((acc, emp) => typeof emp.salary === 'number' ? acc + emp.salary : acc, 0);
 
-		const average = totalSalary / employees.length;
+		const average = totalSalary / employee.length;
 
-		const roundedAvg = Math.round(average);
+		const roundedAverage = Math.round(average);
 
-		return {department, average: roundedAvg}
+		return {department, average: roundedAverage}
 	})
 
 	return averages.filter(({average}) => average > threshold)
