@@ -7,7 +7,6 @@ const employees = [
 	{ name: 'Frank', department: 'HR', salary: 90000, position: 'Senior' },
 	{ name: 'Grace', department: 'IT', salary: 75000, position: 'Senior' },
 	{ name: 'Hank', department: 'Marketing', salary: 68000, position: 'Middle' },
-	{ name: 'Alice', department: 'Legal', salary: 62000, position: 'Junior' },
 ];
 
 const uniquePositionInDepartment = (employees) => {
