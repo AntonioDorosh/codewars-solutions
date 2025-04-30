@@ -13,4 +13,4 @@ const removeKeys = (obj, keysToRemove) => {
 	}, Array.isArray(obj) ? [] : {})
 };
 
-console.log(removeKeys(input, keysToRemove))
+console.log(removeKeys(input, keysToRemove));
