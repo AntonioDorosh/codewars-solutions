@@ -9,23 +9,20 @@ const data = {
 };
 
 const flattenObj = (obj) => {
-	const flattenObjHandler = (currentValue, currentPath) => {
-		if (typeof currentValue !== 'object' || currentValue === null) {
-			return [{
-				path: currentPath,
-				value: currentValue
-			}]
+	const traverse = (value, path) => {
+		if (typeof value !== 'object' || value === null) {
+			return [{path, value}]
 		}
 
-		return Object.keys(currentValue).reduce((acc, key) => {
-			const newPath = currentPath ? `${currentPath}.${key}` : key;
-			const nested = flattenObjHandler(currentValue[key], newPath)
+		return Object.keys(value).reduce((acc, key) => {
+			const newPath = path ? `${path}.${key}` : key;
+			const nested = traverse(value[key], newPath);
 
 			return acc.concat(nested)
 		}, [])
 	};
 
-	return flattenObjHandler(obj, '')
+	return traverse(obj, '')
 };
 
 console.log(flattenObj(data))

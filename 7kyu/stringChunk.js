@@ -8,4 +8,4 @@ const stringChunk = (str, number) => {
 };
 
 stringChunk('codewars', 2);
-stringChunk('thiskataeasy', 4)
+console.log(stringChunk('thiskataeasy', 4));
