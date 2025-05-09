@@ -16,7 +16,7 @@ const reviews = [
 ];
 
 const groupProductsByCategoryWithRatings = (products, reviews) => {
-	const groupedByCategory = products.reduce((acc, product) => {
+	const productsByCategory = products.reduce((acc, product) => {
 	  const { category } = product;
 
 		if (!acc[category]) acc[category] = [];
@@ -26,7 +26,8 @@ const groupProductsByCategoryWithRatings = (products, reviews) => {
 		return acc
 	}, {});
 
-	const reviewStats = reviews.reduce((acc, {productId, rating}) => {
+
+	const ratingsByProductId = reviews.reduce((acc, {productId, rating}) => {
 	  if (!acc[productId]) acc[productId] = {totalRating: 0, count: 0};
 
 		acc[productId].totalRating += rating;
@@ -35,14 +36,15 @@ const groupProductsByCategoryWithRatings = (products, reviews) => {
 		return acc
 	}, {});
 
-	return Object.entries(groupedByCategory).reduce((acc, [category, products]) => {
+
+	return Object.entries(productsByCategory).reduce((acc, [category, products]) => {
 		acc[category] = products.map((product) => {
 			const { id } = product;
-			const { totalRating, count } = reviewStats[id] || {totalRating: 0, count: 0};
+			const { totalRating, count } = ratingsByProductId[id] || {totalRating: 0, count: 0};
 
 			return {
 				...product,
-				averageRating: count > 0 ? totalRating / count : 0,
+				averageRating: count > 0 ? Math.round(totalRating / count) : 0,
 				reviewsCount: count
 			}
 		})
