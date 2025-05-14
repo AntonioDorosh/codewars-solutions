@@ -13,7 +13,7 @@ const reviews = [
 
 const getProductsWithReviewStats = (products, reviews) => {
 	const reviewsCount = reviews.reduce((totalReviews, {productId, rating}) => {
-	  if (!totalReviews[productId]) totalReviews[productId] = {totalRating: 0, count: 0};
+	  totalReviews[productId] ??= {totalRating: 0, count: 0};
 
 		totalReviews[productId].totalRating += rating;
 		totalReviews[productId].count += 1
@@ -22,15 +22,16 @@ const getProductsWithReviewStats = (products, reviews) => {
 	}, {});
 
 	return products.map(({id, name}) => {
-		const statsReviews = reviewsCount[id] || {totalRating: 0, count: 0};
+		const statsReview = reviewsCount[id] || {totalRating: 0, count: 0};
+		const { totalRating, count } = statsReview;
 
-	  return {
+		return {
 			id,
 			name,
-			averageRating: statsReviews.count > 0 ? Math.round(statsReviews.totalRating / statsReviews.count) : 0,
-			reviewsCount: statsReviews.count
-		};
-	});
+			averageRating: count > 0 ? Math.round(totalRating / count) : 0,
+			reviewsCount: count
+		}
+	})
 };
 console.log(getProductsWithReviewStats(products, reviews));
 
