@@ -15,25 +15,6 @@ const orders = [
 	},
 ];
 
-const mostPopularProduct = (orders) => {
-	return orders.reduce((acc, order) => {
-		const mostPopular = order.items.reduce((sum, item) => {
-			sum[item.productName] = (acc[item.productName] || 0) + 1
-
-			return sum
-		}, {})
-
-		acc = mostPopular[0]
-
-		return {
-			...acc,
-			mostPopular
-		}
-	}, {mostPopular: ''})
-}
-
-console.log(mostPopularProduct(orders));
-
 const ordersAggregation = (orders) => {
 	const initialState = {
 		ordersInfo: [],
