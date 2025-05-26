@@ -30,8 +30,6 @@ const getProjectTeamDetails = (projects, employees, projectId = 'p3') => {
 	const teamDetails = teamEmployeesIds.map((employeeId) => {
 		const employee = employeesById.get(employeeId);
 
-		console.log(employee)
-
 		if (employee) {
 			return {
 				employeeId: employee.employeeId,
