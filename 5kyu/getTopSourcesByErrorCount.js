@@ -9,6 +9,7 @@ const logEntries = [
 
 const getTopSourcesByErrorCount = (logs) => {
 	const errorCountBySource = logs.reduce((acc, log) => {
+
 	  if (log.level === 'ERROR') {
 			acc[log.source] = (acc[log.source] || 0) + 1
 		}
