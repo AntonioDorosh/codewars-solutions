@@ -1,24 +1,21 @@
 const user = { firstName: "ИВАН", lastName: "петРОВ", age: 30, email: "ivan.petrov@example.com" };
 
-const capitalizeUserFields = (obj) => {
-	const entries = Object.entries(obj)
-	const normalizeUserFields = entries.reduce((acc, [key, value]) => {
-		if (typeof value === 'string') {
-			acc[key] = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
-		}
+const capitalizeUserFields = (userData) => {
+	const { firstName, lastName, email, age } = userData;
 
-		return acc
-	}, {})
+	const formattedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+	const formattedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
 
-	const getFullName = () => {
-		return `${normalizeUserFields.firstName} ${normalizeUserFields.lastName}`
-	}
+	const formattedEmail = email.toLowerCase();
+
+	const fullName = `${formattedFirstName} ${formattedLastName}`
 
 	return {
-		...normalizeUserFields,
-		age: obj.age,
-		email: obj.email,
-		fullName: getFullName()
+		firstName: formattedFirstName,
+		lastName: formattedLastName,
+		age,
+		email: formattedEmail,
+		fullName
 	}
 };
 
