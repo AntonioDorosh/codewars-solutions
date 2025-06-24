@@ -15,9 +15,9 @@ const processJsonStrings = (arr) => {
 
 	arr.forEach((item) => {
 		try {
-			const parsedData = JSON.parse(item);
+			const parsedItem = JSON.parse(item);
 
-			data.parsedData.push(parsedData)
+			data.parsedData.push(parsedItem)
 		} catch (error) {
 			data.errors.push({
 				originalString: item,
