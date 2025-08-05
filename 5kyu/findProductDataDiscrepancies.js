@@ -14,8 +14,7 @@ const findProductDataDiscrepancies = (storeProducts, catalogProducts) => {
 	const allUniqueProductKeys = new Set([...Object.keys(storeProducts), ...Object.keys(catalogProducts)]);
 	const discrepancies = {};
 
-
-	for (const productId of allUniqueProductKeys) {
+	allUniqueProductKeys.forEach((productId) => {
 		const storeProduct = storeProducts[productId];
 		const catalogProduct = catalogProducts[productId];
 
@@ -33,7 +32,7 @@ const findProductDataDiscrepancies = (storeProducts, catalogProducts) => {
 				discrepancies[productId] = {nameMisMatch, priceDiscrepancy: priceDiscrepancy || undefined}
 			}
 		}
-	}
+	});
 
 	return discrepancies
 };
